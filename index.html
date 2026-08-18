@@ -3,236 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMA Al Muslim</title>
-    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <title>Portal Ulangan Online - SMA Al Muslim</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #047857;
-            --primary-dark: #064e3b;
+            --primary: #059669;
+            --primary-dark: #047857;
             --primary-light: #ecfdf5;
-            --accent: #d97706;
-            --accent-light: #fef3c7;
+            --accent: #10b981;
             --text-main: #1e293b;
             --text-muted: #64748b;
-            --bg-body: #f1f5f9;
+            --bg-main: #f8fafc;
             --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --danger: #dc2626;
+            --border: #e2e8f0;
             --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-            --radius-lg: 16px;
-            --radius-md: 12px;
-            --radius-sm: 8px;
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 25px rgba(5, 150, 105, 0.12);
+            --radius: 16px;
+            --radius-sm: 10px;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-body);
+            background-color: var(--bg-main);
             color: var(--text-main);
             line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            padding-bottom: 40px;
         }
 
         .header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            color: white;
-            padding: 2.5rem 1.5rem 4rem;
+            background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+            color: #ffffff;
+            padding: 40px 20px 60px;
             text-align: center;
+            border-bottom-left-radius: 32px;
+            border-bottom-right-radius: 32px;
+            box-shadow: 0 10px 20px rgba(4, 120, 87, 0.15);
             position: relative;
-            border-bottom-left-radius: 28px;
-            border-bottom-right-radius: 28px;
-            box-shadow: var(--shadow-md);
         }
 
         .header-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.15);
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(8px);
             padding: 6px 16px;
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.875rem;
             font-weight: 600;
-            margin-bottom: 1rem;
             letter-spacing: 0.5px;
-            text-transform: uppercase;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 12px;
         }
 
         .header h1 {
-            font-size: 2.25rem;
+            font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            margin-bottom: 0.25rem;
+            margin-bottom: 6px;
         }
 
-        .header p.subtitle {
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.9);
+        .header p {
+            font-size: 1rem;
+            opacity: 0.9;
             font-weight: 500;
-            letter-spacing: 0.3px;
         }
 
         .container {
-            width: 100%;
-            max-width: 860px;
-            margin: -2.5rem auto 3rem;
-            padding: 0 1.25rem;
+            max-width: 800px;
+            width: 90%;
+            margin: -30px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
             position: relative;
             z-index: 10;
         }
 
         .card {
             background: var(--card-bg);
-            border-radius: var(--radius-lg);
-            padding: 2rem;
-            margin-bottom: 1.75rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 28px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        /* Countdown Card Styling */
-        .timer-card {
-            text-align: center;
-            background: linear-gradient(to bottom, #ffffff, var(--primary-light));
-            border: 2px solid rgba(4, 120, 87, 0.15);
-        }
-
-        .status-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .status-pill.waiting {
-            background-color: var(--accent-light);
-            color: var(--accent);
-            border: 1px solid rgba(217, 119, 6, 0.3);
-        }
-
-        .status-pill.active {
-            background-color: #dcfce7;
-            color: #15803d;
-            border: 1px solid rgba(21, 128, 61, 0.3);
-        }
-
-        .status-pill.ended {
-            background-color: #fee2e2;
-            color: var(--danger);
-            border: 1px solid rgba(220, 38, 38, 0.3);
-        }
-
-        .status-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .status-pill.active .status-dot {
-            background-color: #16a34a;
-            animation: pulse 1.5s infinite;
-        }
-
-        .status-pill.waiting .status-dot {
-            background-color: var(--accent);
-        }
-
-        .status-pill.ended .status-dot {
-            background-color: var(--danger);
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(22, 163, 74, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
-        }
-
-        .timer-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .countdown-display {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            margin: 0.5rem 0 1rem;
-        }
-
-        .time-block {
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 10px 16px;
-            min-width: 75px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .time-number {
-            font-size: 1.85rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            line-height: 1.1;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .time-unit {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-top: 4px;
-        }
-
-        .time-separator {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-top: -10px;
         }
 
         .card-header {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
             border-bottom: 2px solid var(--primary-light);
         }
 
-        .card-header-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background-color: var(--primary-light);
+        .card-header .icon-box {
+            width: 42px;
+            height: 42px;
+            background: var(--primary-light);
             color: var(--primary);
+            border-radius: var(--radius-sm);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -240,111 +123,186 @@
         }
 
         .card-header h2 {
-            font-size: 1.35rem;
-            font-weight: 700;
+            font-size: 1.25rem;
             color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .timer-card {
+            text-align: center;
+            background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+            border: 2px solid #a7f3d0;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-waiting {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .status-active {
+            background: #dcfce7;
+            color: #15803d;
+            animation: pulse 2s infinite;
+        }
+
+        .status-ended {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        .timer-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .timer-box {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            min-width: 70px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timer-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1;
+        }
+
+        .timer-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 4px;
         }
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
         }
 
         .info-item {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            background: var(--bg-body);
-            padding: 12px 16px;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border-color);
+            background: #f8fafc;
+            padding: 14px 18px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
         }
 
-        .info-label {
+        .info-item span {
+            display: block;
             font-size: 0.8rem;
             color: var(--text-muted);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            margin-bottom: 2px;
         }
 
-        .info-value {
+        .info-item strong {
             font-size: 1rem;
-            font-weight: 700;
             color: var(--text-main);
-        }
-
-        /* Quick Specs Bar */
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.75rem;
-        }
-
-        .spec-box {
-            background: #ffffff;
-            border-radius: var(--radius-md);
-            padding: 1.25rem 1rem;
-            text-align: center;
-            border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .spec-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.35rem;
-        }
-
-        .spec-title {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .spec-detail {
-            font-size: 0.95rem;
             font-weight: 700;
-            color: var(--primary-dark);
+        }
+
+        .instruction-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .instruction-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .instruction-list li::before {
+            content: "✓";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 800;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            flex-shrink: 0;
             margin-top: 2px;
         }
 
-        .action-area {
+        .quote-box {
+            margin-top: 20px;
+            background: #f0fdf4;
+            border-left: 4px solid var(--primary);
+            padding: 14px 18px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-style: italic;
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .action-container {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 12px;
+            margin-top: 10px;
         }
 
         .btn {
-            width: 100%;
-            padding: 1.15rem 1.75rem;
-            border-radius: var(--radius-md);
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-align: center;
-            cursor: pointer;
-            border: none;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
+            padding: 16px 28px;
+            border-radius: var(--radius-sm);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
             text-decoration: none;
+            width: 100%;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            box-shadow: 0 6px 20px rgba(4, 120, 87, 0.3);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: #ffffff;
+            box-shadow: var(--shadow-lg);
         }
 
         .btn-primary:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(4, 120, 87, 0.4);
-            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 12px 28px rgba(5, 150, 105, 0.25);
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
         }
 
         .btn-primary:disabled {
@@ -356,191 +314,116 @@
         }
 
         .btn-secondary {
-            background-color: #ffffff;
+            background: #ffffff;
             color: var(--text-main);
-            border: 1.5px solid var(--border-color);
-            font-size: 1rem;
+            border: 1.5px solid var(--border);
         }
 
         .btn-secondary:hover {
-            background-color: var(--bg-body);
+            background: #f1f5f9;
             border-color: #cbd5e1;
-        }
-
-        /* Instructions List */
-        .instructions-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.85rem;
-        }
-
-        .instructions-list li {
-            position: relative;
-            padding-left: 2.25rem;
-            font-size: 0.975rem;
-            color: #334155;
-            line-height: 1.5;
-        }
-
-        .instructions-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            top: 2px;
-            width: 22px;
-            height: 22px;
-            background-color: var(--primary-light);
-            color: var(--primary);
-            font-weight: 800;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-        }
-
-        .quote-box {
-            margin-top: 1.5rem;
-            background: var(--accent-light);
-            border-left: 4px solid var(--accent);
-            padding: 1rem 1.25rem;
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #92400e;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0;
+            bottom: 0;
             background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(4px);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
+            z-index: 100;
             opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease;
-            padding: 1rem;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            padding: 20px;
         }
 
         .modal-overlay.active {
             opacity: 1;
-            pointer-events: auto;
+            visibility: visible;
         }
 
-        .modal-box {
-            background: white;
-            border-radius: var(--radius-lg);
-            width: 100%;
+        .modal {
+            background: #ffffff;
+            border-radius: var(--radius);
+            padding: 32px;
             max-width: 440px;
-            padding: 2rem;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            width: 100%;
             text-align: center;
-            transform: scale(0.95);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transform: scale(0.9);
             transition: transform 0.25s ease;
         }
 
-        .modal-overlay.active .modal-box {
+        .modal-overlay.active .modal {
             transform: scale(1);
         }
 
         .modal-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-light);
-            color: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            margin: 0 auto 1.25rem;
+            font-size: 3rem;
+            margin-bottom: 12px;
         }
 
-        .modal-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        .modal h3 {
+            font-size: 1.35rem;
+            margin-bottom: 10px;
             color: var(--text-main);
         }
 
-        .modal-text {
+        .modal p {
             font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 1.75rem;
-            line-height: 1.5;
+            margin-bottom: 24px;
         }
 
         .modal-buttons {
             display: flex;
-            gap: 0.75rem;
+            gap: 12px;
         }
 
         .modal-buttons .btn {
-            padding: 0.85rem 1rem;
+            padding: 12px 20px;
             font-size: 0.95rem;
         }
 
         .footer {
+            margin-top: 40px;
             text-align: center;
-            padding: 2rem 1.5rem;
             color: var(--text-muted);
             font-size: 0.875rem;
-            background-color: #ffffff;
-            border-top: 1px solid var(--border-color);
         }
 
-        .footer p.footer-main {
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 4px;
+        .footer strong {
+            color: var(--primary-dark);
         }
 
-        .footer p.footer-sub {
+        .footer-note {
             font-size: 0.8rem;
-            color: var(--text-muted);
+            margin-top: 4px;
+            opacity: 0.8;
         }
 
-        /* Responsive Breakpoints */
         @media (max-width: 640px) {
             .header {
-                padding: 2rem 1rem 3.5rem;
+                padding: 30px 16px 50px;
             }
-
             .header h1 {
                 font-size: 1.75rem;
             }
-
-            .container {
-                padding: 0 1rem;
-            }
-
             .card {
-                padding: 1.35rem;
+                padding: 20px;
             }
-
-            .countdown-display {
-                gap: 6px;
-            }
-
-            .time-block {
-                padding: 8px 10px;
-                min-width: 60px;
-            }
-
-            .time-number {
+            .timer-number {
                 font-size: 1.4rem;
             }
-
+            .timer-box {
+                min-width: 58px;
+                padding: 8px 10px;
+            }
             .modal-buttons {
                 flex-direction: column;
             }
@@ -553,145 +436,118 @@
         <div class="header-badge">
             <span>🏫</span> SMA AL MUSLIM
         </div>
-        <h1>ULANGAN ONLINE SISWA</h1>
-        <p class="subtitle">Belajar • Berproses • Berprestasi</p>
+        <h1>ULANGAN ONLINE</h1>
+        <p>"Belajar • Berproses • Berprestasi"</p>
     </header>
 
     <main class="container">
-        
-        <!-- Timer Status Card -->
-        <div class="card timer-card">
-            <div id="statusPill" class="status-pill waiting">
-                <span class="status-dot"></span>
-                <span id="statusText">Memeriksa jadwal ulangan...</span>
-            </div>
-            
-            <div class="timer-label" id="timerLabel">Ulangan Dimulai Dalam</div>
-            
-            <div class="countdown-display">
-                <div class="time-block">
-                    <div class="time-number" id="hours">00</div>
-                    <div class="time-unit">Jam</div>
-                </div>
-                <div class="time-separator">:</div>
-                <div class="time-block">
-                    <div class="time-number" id="minutes">00</div>
-                    <div class="time-unit">Menit</div>
-                </div>
-                <div class="time-separator">:</div>
-                <div class="time-block">
-                    <div class="time-number" id="seconds">00</div>
-                    <div class="time-unit">Detik</div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Spec Highlights Grid -->
-        <div class="specs-grid">
-            <div class="spec-box">
-                <div class="spec-icon">⏱</div>
-                <div class="spec-title">Durasi</div>
-                <div class="spec-detail" id="specDuration">90 Menit</div>
+        <!-- Timer & Status Card -->
+        <section class="card timer-card">
+            <div id="statusBadge" class="status-badge status-waiting">
+                Memuat Status Waktu...
             </div>
-            <div class="spec-box">
-                <div class="spec-icon">📝</div>
-                <div class="spec-title">Bentuk</div>
-                <div class="spec-detail">Google Form</div>
+            <div id="statusTitle" style="font-weight: 700; color: var(--text-main); font-size: 1.1rem;">
+                Ulangan Dimulai Dalam:
             </div>
-            <div class="spec-box">
-                <div class="spec-icon">👨‍🎓</div>
-                <div class="spec-title">Peserta</div>
-                <div class="spec-detail">Siswa SMA</div>
-            </div>
-            <div class="spec-box">
-                <div class="spec-icon">📚</div>
-                <div class="spec-title">Mata Pelajaran</div>
-                <div class="spec-detail" id="specSubject">-</div>
-            </div>
-        </div>
 
-        <!-- Exam Identity Card -->
-        <div class="card">
+            <div class="timer-display">
+                <div class="timer-box">
+                    <div id="t-hours" class="timer-number">00</div>
+                    <div class="timer-label">Jam</div>
+                </div>
+                <span style="font-weight: 800; font-size: 1.5rem; color: var(--text-muted);">:</span>
+                <div class="timer-box">
+                    <div id="t-minutes" class="timer-number">00</div>
+                    <div class="timer-label">Menit</div>
+                </div>
+                <span style="font-weight: 800; font-size: 1.5rem; color: var(--text-muted);">:</span>
+                <div class="timer-box">
+                    <div id="t-seconds" class="timer-number">00</div>
+                    <div class="timer-label">Detik</div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-container">
+                <button id="btnStart" class="btn btn-primary" disabled onclick="openConfirmationModal()">
+                    🚀 MULAI ULANGAN
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToInstructions()">
+                    📋 Lihat Petunjuk Pengerjaan
+                </button>
+            </div>
+        </section>
+
+        <section class="card">
             <div class="card-header">
-                <div class="card-header-icon">📄</div>
+                <div class="icon-box">📌</div>
                 <h2>Identitas Ulangan</h2>
             </div>
             <div class="info-grid">
                 <div class="info-item">
-                    <span class="info-label">Mata Pelajaran</span>
-                    <span class="info-value" id="infoSubject">-</span>
+                    <span>Mata Pelajaran</span>
+                    <strong id="val-subject">-</strong>
                 </div>
                 <div class="info-item">
-                    <span class="info-label">Kelas / Program</span>
-                    <span class="info-value" id="infoClass">-</span>
+                    <span>Kelas</span>
+                    <strong id="val-class">-</strong>
                 </div>
                 <div class="info-item">
-                    <span class="info-label">Materi Pokok</span>
-                    <span class="info-value" id="infoMaterial">-</span>
+                    <span>Materi Pelajaran</span>
+                    <strong id="val-material">-</strong>
                 </div>
                 <div class="info-item">
-                    <span class="info-label">Guru Pengampu</span>
-                    <span class="info-value" id="infoTeacher">-</span>
+                    <span>Guru Pengampu</span>
+                    <strong id="val-teacher">-</strong>
                 </div>
                 <div class="info-item">
-                    <span class="info-label">Semester</span>
-                    <span class="info-value" id="infoSemester">-</span>
+                    <span>Semester / TA</span>
+                    <strong id="val-semester">-</strong>
                 </div>
                 <div class="info-item">
-                    <span class="info-label">Tahun Pelajaran</span>
-                    <span class="info-value" id="infoYear">2026/2027</span>
+                    <span>Alokasi Durasi</span>
+                    <strong id="val-duration">-</strong>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="action-area">
-            <button id="btnStart" class="btn btn-primary" disabled>
-                🚀 MULAI ULANGAN
-            </button>
-            <button id="btnInstructions" class="btn btn-secondary">
-                📋 Lihat Petunjuk Pengerjaan
-            </button>
-        </div>
-
-        <!-- Instructions Card -->
-        <div class="card" id="instructionsSection">
+        <section id="petunjukSection" class="card">
             <div class="card-header">
-                <div class="card-header-icon">💡</div>
+                <div class="icon-box">📖</div>
                 <h2>Petunjuk Pengerjaan</h2>
             </div>
-            <ul class="instructions-list">
-                <li>Berdoalah sebelum mengerjakan soal ulangan.</li>
-                <li>Bacalah setiap soal dengan teliti dan cermat.</li>
-                <li>Kerjakan soal secara mandiri, jujur, dan tidak berbuat kecurangan.</li>
-                <li>Pastikan seluruh jawaban telah diperiksa kembali sebelum menekan tombol kirim.</li>
-                <li>Gunakan perangkat dan koneksi internet yang stabil selama pelaksanaan ulangan.</li>
-                <li><strong>Jangan menutup halaman Google Form</strong> sebelum jawaban Anda berhasil dikirim.</li>
-                <li>Setelah selesai, pastikan muncul konfirmasi bahwa jawaban telah berhasil terkirim.</li>
+            <ul class="instruction-list">
+                <li>Berdoalah sebelum memulai mengerjakan soal ulangan.</li>
+                <li>Bacalah setiap butir soal dengan teliti dan cermat.</li>
+                <li>Kerjakan secara mandiri, jujur, dan penuh tanggung jawab.</li>
+                <li>Pastikan seluruh jawaban telah diperiksa kembali sebelum tombol kirim ditekan.</li>
+                <li>Gunakan perangkat (HP/Laptop) dan koneksi internet yang stabil.</li>
+                <li>Jangan menutup tab halaman Google Form sebelum konfirmasi jawaban terkirim muncul.</li>
+                <li>Setelah selesai, pastikan muncul tanda bukti bahwa respon telah berhasil disimpan.</li>
             </ul>
             <div class="quote-box">
-                <span>✨</span>
-                <span>"Kejujuran adalah bagian dari proses belajar."</span>
+                💡 "Kejujuran adalah bagian utama dari proses belajar dan pembentukan karakter mulia."
             </div>
-        </div>
+        </section>
 
     </main>
 
-    <!-- Custom Modal Confirmation -->
-    <div id="confirmModal" class="modal-overlay">
-        <div class="modal-box">
-            <div class="modal-icon">🚀</div>
-            <h3 class="modal-title">Konfirmasi Pengerjaan</h3>
-            <p class="modal-text">Apakah Anda sudah siap mengerjakan ulangan ini? Pastikan Anda berada dalam jaringan internet yang stabil.</p>
+    <div id="modalConfirm" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-icon">✍️</div>
+            <h3>Konfirmasi Pengerjaan</h3>
+            <p>Apakah Anda sudah siap untuk mulai mengerjakan soal ulangan sekarang?</p>
             <div class="modal-buttons">
-                <button id="btnModalCancel" class="btn btn-secondary">BELUM</button>
-                <button id="btnModalConfirm" class="btn btn-primary">SIAP, MULAI</button>
+                <button class="btn btn-secondary" onclick="closeConfirmationModal()">BELUM</button>
+                <button class="btn btn-primary" onclick="launchExam()">SIAP, MULAI</button>
             </div>
         </div>
     </div>
 
     <footer class="footer">
-        <p class="footer-main">© 2026 SMA Al Muslim — Ulangan Online</p>
-        <p class="footer-sub">Kerjakan dengan jujur, teliti, dan penuh tanggung jawab.</p>
+        <p>© 2026 <strong>SMA Al Muslim</strong> — Portal Ulangan Online</p>
+        <p class="footer-note">Kerjakan dengan jujur, teliti, dan penuh tanggung jawab.</p>
     </footer>
 
     <script>
@@ -701,167 +557,123 @@
          * =================================================================
          */
         const CONFIG = {
-            // Paste link Google Form di bawah ini:
-            googleFormUrl: "https://forms.gle/Ty2VqeFHHdCfvkL9A",
+            // 1. Paste link Google Form Anda di sini:
+            googleFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdHVzMb2bmiMxWaLLiEZtLIMUEZ1Mto_rbOAGgzP3buOC5PTg/viewform",
             
-            // Format Tanggal: YYYY-MM-DDTHH:mm:ss (Waktu WIB / Lokal)
-            examStart: "2026-08-19T07:00:00",
-            examEnd: "2026-08-19T09:00:00",
+            // 2. Format Waktu: TAHUN-BULAN-TANGGALTHH:MM:SS (Lokal WIB)
+            // Catatan: Waktu Mulai disetel sebelum waktu sekarang agar langsung bisa dikerjakan
+            examStart: "2026-08-18T00:00:00", 
+            examEnd: "2026-12-31T15:15:59",
             
-            // Identitas Ulangan
-            subject: "Basa Jawa Kelas 10",
-            className: "X ",
-            material: "Basa Reningga",
+            // 3. Identitas Ulangan:
+            subject: "Basa Jawa",
+            className: "X",
+            material: "Basa Rinengga",
             teacher: "Ustadz Ali Tamam, S.Pd.,Gr",
             semester: "GASAL",
             academicYear: "2026/2027",
             durationMinutes: 90
         };
 
-        // DOM Elements
-        const elStatusPill = document.getElementById('statusPill');
-        const elStatusText = document.getElementById('statusText');
-        const elTimerLabel = document.getElementById('timerLabel');
-        const elHours = document.getElementById('hours');
-        const elMinutes = document.getElementById('minutes');
-        const elSeconds = document.getElementById('seconds');
-        
-        const elBtnStart = document.getElementById('btnStart');
-        const elBtnInstructions = document.getElementById('btnInstructions');
-        const elConfirmModal = document.getElementById('confirmModal');
-        const elBtnModalConfirm = document.getElementById('btnModalConfirm');
-        const elBtnModalCancel = document.getElementById('btnModalCancel');
-
-        let isExamActive = false;
-
-        // Populate Info UI from CONFIG
-        function populateUI() {
-            document.getElementById('infoSubject').textContent = CONFIG.subject;
-            document.getElementById('infoClass').textContent = CONFIG.className;
-            document.getElementById('infoMaterial').textContent = CONFIG.material;
-            document.getElementById('infoTeacher').textContent = CONFIG.teacher;
-            document.getElementById('infoSemester').textContent = CONFIG.semester;
-            document.getElementById('infoYear').textContent = CONFIG.academicYear;
-            
-            document.getElementById('specSubject').textContent = CONFIG.subject;
-            document.getElementById('specDuration').textContent = `${CONFIG.durationMinutes} Menit`;
+        function initExamDetails() {
+            document.getElementById('val-subject').textContent = CONFIG.subject;
+            document.getElementById('val-class').textContent = CONFIG.className;
+            document.getElementById('val-material').textContent = CONFIG.material;
+            document.getElementById('val-teacher').textContent = CONFIG.teacher;
+            document.getElementById('val-semester').textContent = CONFIG.semester + " (" + CONFIG.academicYear + ")";
+            document.getElementById('val-duration').textContent = CONFIG.durationMinutes + " Menit";
         }
 
-        // Format padding number with leading zero
         function padZero(num) {
             return String(num).padStart(2, '0');
         }
 
-        // Timer and status checker
-        function updateTimer() {
+        function updateCountdown() {
             const now = new Date().getTime();
             const startTime = new Date(CONFIG.examStart).getTime();
             const endTime = new Date(CONFIG.examEnd).getTime();
 
-            if (isNaN(startTime) || isNaN(endTime)) {
-                elStatusText.textContent = "Format tanggal salah pada CONFIG";
-                return;
-            }
+            const statusBadge = document.getElementById('statusBadge');
+            const statusTitle = document.getElementById('statusTitle');
+            const btnStart = document.getElementById('btnStart');
+
+            const hBox = document.getElementById('t-hours');
+            const mBox = document.getElementById('t-minutes');
+            const sBox = document.getElementById('t-seconds');
 
             if (now < startTime) {
-                // Before Exam Starts
-                isExamActive = false;
-                const distance = startTime - now;
+                // STATUS: Ulangan Belum Dimulai
+                const diff = startTime - now;
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-                const hrs = Math.floor(distance / (1000 * 60 * 60));
-                const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const secs = Math.floor((distance % (1000 * 60)) / 1000);
+                hBox.textContent = padZero(hours);
+                mBox.textContent = padZero(minutes);
+                sBox.textContent = padZero(seconds);
 
-                elHours.textContent = padZero(hrs);
-                elMinutes.textContent = padZero(mins);
-                elSeconds.textContent = padZero(secs);
-
-                elStatusPill.className = "status-pill waiting";
-                elStatusText.textContent = "Ulangan Belum Dimulai";
-                elTimerLabel.textContent = "Ulangan Dimulai Dalam";
-                
-                elBtnStart.disabled = true;
-                elBtnStart.innerHTML = "🔒 ULANGAN BELUM DIMULAI";
-
+                statusBadge.className = 'status-badge status-waiting';
+                statusBadge.textContent = 'Ulangan Belum Dimulai';
+                statusTitle.textContent = 'Ulangan Dimulai Dalam:';
+                btnStart.disabled = true;
+                btnStart.textContent = '🔒 ULANGAN BELUM DIMULAI';
             } else if (now >= startTime && now <= endTime) {
-                // Exam is Ongoing
-                isExamActive = true;
-                const distance = endTime - now;
+                // STATUS: Ulangan Sedang Berlangsung
+                const diff = endTime - now;
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-                const hrs = Math.floor(distance / (1000 * 60 * 60));
-                const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const secs = Math.floor((distance % (1000 * 60)) / 1000);
+                hBox.textContent = padZero(hours);
+                mBox.textContent = padZero(minutes);
+                sBox.textContent = padZero(seconds);
 
-                elHours.textContent = padZero(hrs);
-                elMinutes.textContent = padZero(mins);
-                elSeconds.textContent = padZero(secs);
-
-                elStatusPill.className = "status-pill active";
-                elStatusText.textContent = "Ulangan Sedang Berlangsung";
-                elTimerLabel.textContent = "Sisa Waktu Pengerjaan";
-
-                elBtnStart.disabled = false;
-                elBtnStart.innerHTML = "🚀 MULAI ULANGAN";
-
+                statusBadge.className = 'status-badge status-active';
+                statusBadge.textContent = 'Ulangan Sedang Berlangsung';
+                statusTitle.textContent = 'Sisa Waktu Pengerjaan:';
+                btnStart.disabled = false;
+                btnStart.textContent = '🚀 MULAI ULANGAN';
             } else {
-                // Exam Finished
-                isExamActive = false;
-                
-                elHours.textContent = "00";
-                elMinutes.textContent = "00";
-                elSeconds.textContent = "00";
+                // STATUS: Waktu Selesai
+                hBox.textContent = '00';
+                mBox.textContent = '00';
+                sBox.textContent = '00';
 
-                elStatusPill.className = "status-pill ended";
-                elStatusText.textContent = "Waktu Ulangan Telah Berakhir";
-                elTimerLabel.textContent = "Ulangan Telah Selesai";
-
-                elBtnStart.disabled = true;
-                elBtnStart.innerHTML = "⛔ WAKTU ULANGAN TELAH BERAKHIR";
+                statusBadge.className = 'status-badge status-ended';
+                statusBadge.textContent = 'Waktu Telah Berakhir';
+                statusTitle.textContent = 'Sesi Ulangan Telah Ditutup';
+                btnStart.disabled = true;
+                btnStart.textContent = '🚫 WAKTU ULANGAN TELAH BERAKHIR';
             }
         }
 
-        // Smooth scroll to instructions
-        elBtnInstructions.addEventListener('click', () => {
-            document.getElementById('instructionsSection').scrollIntoView({ behavior: 'smooth' });
-        });
+        function openConfirmationModal() {
+            const btnStart = document.getElementById('btnStart');
+            if (btnStart.disabled) return;
+            document.getElementById('modalConfirm').classList.add('active');
+        }
 
-        // Open Modal Confirmation
-        elBtnStart.addEventListener('click', () => {
-            if (!isExamActive) return;
-            elConfirmModal.classList.add('active');
-        });
+        function closeConfirmationModal() {
+            document.getElementById('modalConfirm').classList.remove('active');
+        }
 
-        // Modal Cancel
-        elBtnModalCancel.addEventListener('click', () => {
-            elConfirmModal.classList.remove('active');
-        });
-
-        // Modal Confirm & Launch Google Form
-        elBtnModalConfirm.addEventListener('click', () => {
-            elConfirmModal.classList.remove('active');
-            
-            // Check link configuration
-            if (CONFIG.googleFormUrl.includes("MASUKKAN_LINK") || !CONFIG.googleFormUrl.startsWith("http")) {
-                alert("Link Google Form belum dikonfigurasi oleh Guru!");
-                return;
+        function launchExam() {
+            closeConfirmationModal();
+            if (CONFIG.googleFormUrl && CONFIG.googleFormUrl !== "") {
+                window.open(CONFIG.googleFormUrl, "_blank");
             }
+        }
 
-            // Open link in new window/tab
-            window.open(CONFIG.googleFormUrl, "_blank");
-        });
+        function scrollToInstructions() {
+            document.getElementById('petunjukSection').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
 
-        // Close modal on click outside box
-        elConfirmModal.addEventListener('click', (e) => {
-            if (e.target === elConfirmModal) {
-                elConfirmModal.classList.remove('active');
-            }
-        });
-
-        // Initialization on Load
         window.onload = function() {
-            populateUI();
-            updateTimer();
-            setInterval(updateTimer, 1000);
+            initExamDetails();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
         };
     </script>
 </body>
